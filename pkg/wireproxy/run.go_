@@ -1,0 +1,8 @@
+// pkg/wireproxy/run.go
+package wireproxy
+
+//import "wireproxy"
+
+func Run() {
+    app.Main()
+}

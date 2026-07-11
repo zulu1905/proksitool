@@ -1,0 +1,8 @@
+// pkg/dnscrypt/run.go
+package dnscrypt
+
+//import "dnscrypt"
+
+func Run() {
+    dnscrypt.Main()
+}

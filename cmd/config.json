@@ -1,0 +1,29 @@
+{
+  "active_mode": "WireProxy",
+  "addr": "127.0.0.1",
+  "port": "1233",
+  "dns": "unfiltered",
+  "win_size": "",
+  "split_mode": "",
+  "bypass_lan": true,
+  "spoof_args": "--app-mode socks5 --https-split-mode chunk --https-chunk-size 15",
+  "apps": [
+    {
+      "name": "Discord",
+      "protocol": "TCP",
+      "mode": "Tunnel"
+    },
+    {
+      "name": "Webcord",
+      "protocol": "TCP",
+      "mode": "Tunnel"
+    },
+    {
+      "name": "Roblox",
+      "protocol": "TCP+UDP",
+      "mode": "Tunnel"
+    }
+  ],
+  "dns_filter": true,
+  "launch_browser": false
+}

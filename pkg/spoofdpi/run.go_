@@ -1,0 +1,13 @@
+// pkg/spoofdpi/run.go
+package spoofdpi
+
+//import "spoofdpi"
+
+func Run() {
+    spoofdpi.Main()
+}
+
+
+
+
+

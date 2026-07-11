@@ -1,0 +1,27 @@
+{
+  "logLevel": "error",
+  "bypassLan": true,
+  "proxies": [
+    {
+      "appNames": [
+        "Discord",
+        "Webcord"
+      ],
+      "socks5ProxyEndpoint": "127.0.0.1:1233",
+      "supportedProtocols": [
+        "TCP"
+      ]
+    },
+    {
+      "appNames": [
+        "Roblox"
+      ],
+      "socks5ProxyEndpoint": "127.0.0.1:1233",
+      "supportedProtocols": [
+        "TCP",
+        "UDP"
+      ]
+    }
+  ],
+  "excludes": null
+}

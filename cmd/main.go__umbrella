@@ -1,0 +1,50 @@
+package main
+
+import (
+    "fmt"
+    "log"
+    "os"
+    "context"
+
+    "myvpn/pkg/wgcf"
+    "myvpn/pkg/wireproxy"
+    "myvpn/pkg/spoofdpi"
+    "myvpn/pkg/dnscrypt"
+
+    A "github.com/wiresock/ndisapi-go"
+    ndisapi "myvpn/pkg/ndisapi/ndisapi-go"
+)
+
+func main() {
+    if len(os.Args) < 2 {
+        fmt.Println("Usage: deneme.exe <module>")
+        os.Exit(1)
+    }
+
+    _, cancel := context.WithCancel(context.Background())
+    defer cancel()
+
+    switch os.Args[1] {
+    case "wgcf":
+        wgcf.Run()
+    case "wireproxy":
+        os.Args = os.Args[2:]
+        wireproxy.Run()
+    case "spoofdpi":
+        os.Args = os.Args[2:]
+        spoofdpi.Run()
+    case "dnscrypt":
+        os.Args = os.Args[2:]
+        dnscrypt.Run()
+    case "ndis":
+        api, err := A.NewNdisApi()
+        if err != nil {
+            log.Fatalf("Failed to init NDIS API: %v", err)
+        }
+        router, err := ndisapi.SetupProxyRouter(api)
+        if err != nil {
+            log.Fatalf("Failed to setup proxy router: %v", err)
+        }
+        defer router.Close()
+    }
+}
